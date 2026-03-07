@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IQH Futures Risk Analiz | WhatsApp'tan Ücretsiz Analiz</title>
+  <meta name="description" content="Binance Futures işlemini WhatsApp üzerinden ücretsiz analiz edelim. Kaldıraç, pozisyon büyüklüğü, stop ve risk yapısı." />
+
+  <meta property="og:title" content="WhatsApp'tan Ücretsiz Binance Futures Risk Analizi" />
+  <meta property="og:description" content="Kaldıraç, pozisyon, stop ve risk yapını 1 dakikada başlat." />
+  <meta property="og:type" content="website" />
+
+  <!-- Facebook Pixel -->
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4158090841167718');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4158090841167718&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+  <!-- ====== CONFIG ====== -->
+  <script>
+    const WHATSAPP_URL = "https://lihi2.me/Lfo5n";
+    const DWELL_SITE = "tr";
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#101826;
+      --panel2:#0f1520;
+      --text:#e9eef7;
+      --muted:#a8b2c3;
+      --yellow:#f4c20d;
+      --yellow2:#ffcf33;
+      --green:#17c964;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 50px rgba(0,0,0,.55);
+      --radius:18px;
+      --radius2:24px;
+      --max:1080px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1000px 520px at 70% 0%, rgba(23,201,100,.10), transparent 60%),
+        radial-gradient(900px 520px at 20% 10%, rgba(244,194,13,.10), transparent 60%),
+        linear-gradient(180deg, #070a0f, #0b0f14 45%, #070a0f);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:rgba(7,10,15,.72);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:200px;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:7px; height:7px; border-radius:999px; background:var(--green);
+      box-shadow:0 0 0 4px rgba(23,201,100,.16);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border:none; cursor:pointer;
+      padding:14px 16px;
+      border-radius:14px;
+      font-weight:800;
+      transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(180deg, var(--yellow2), var(--yellow));
+      color:#1b1b1b;
+      box-shadow: 0 12px 30px rgba(244,194,13,.22);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+    .btn-small{padding:10px 12px; border-radius:12px; font-size:14px}
+
+    .hero{padding:44px 0 22px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr;}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(16,24,38,.92), rgba(11,15,20,.92));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card.pad{padding:26px}
+    .glow{
+      position:absolute; inset:-120px -120px auto auto;
+      width:260px; height:260px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(244,194,13,.20), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-title{
+      margin:0 0 10px;
+      font-size: clamp(30px, 4.2vw, 48px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .hero-title .kpi{
+      color:var(--yellow2);
+      text-shadow: 0 10px 40px rgba(244,194,13,.20);
+    }
+    .sub{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.5;
+      max-width:56ch;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .mini-note{font-size:12px; color:var(--muted); margin-top:10px}
+    .mini-note b{color:#d7deea}
+    .flow{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:rgba(233,238,247,.90);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .flow b{color:#fff}
+
+    .side{display:flex; flex-direction:column; gap:12px;}
+    .stat{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .stat .n{font-size:22px; font-weight:900}
+    .stat .l{font-size:12px; color:var(--muted); margin-top:4px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:14px;
+      background:rgba(23,201,100,.10);
+      border:1px solid rgba(23,201,100,.25);
+      color:#bff1d2;
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .section{padding:18px 0}
+    .section-title{margin:0 0 10px; font-size:22px; letter-spacing:-.2px;}
+    .section-desc{margin:0 0 16px; color:var(--muted); line-height:1.6}
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 840px){ .grid-2{grid-template-columns:1fr} }
+
+    .list{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;}
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .check{
+      width:22px; height:22px; border-radius:8px;
+      background:rgba(23,201,100,.12);
+      border:1px solid rgba(23,201,100,.28);
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .li b{display:block; margin-bottom:2px}
+    .li span{color:var(--muted); font-size:13px; line-height:1.5}
+
+    .chips{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:10px;
+      margin-top:8px;
+    }
+    @media (max-width: 920px){ .chips{grid-template-columns:1fr 1fr} }
+    .chip{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      display:flex; gap:10px; align-items:center;
+    }
+    .chip .ico{
+      width:26px; height:26px; border-radius:10px;
+      background:rgba(244,194,13,.14);
+      border:1px solid rgba(244,194,13,.26);
+      display:flex; align-items:center; justify-content:center;
+      color:#1b1b1b;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .chip .t{font-weight:800; font-size:13px}
+    .chip .m{font-size:12px; color:var(--muted); margin-top:2px}
+
+    .trust{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 840px){ .trust{grid-template-columns:1fr} }
+    .trust .box{
+      padding:18px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .trust .big{
+      font-size:28px; font-weight:900; color:var(--yellow2);
+      letter-spacing:-.4px;
+    }
+    .trust .small{color:var(--muted); margin-top:6px}
+    .trust-note{
+      margin-top:10px;
+      font-size:12px;
+      color:rgba(168,178,195,.90);
+      line-height:1.5;
+    }
+
+    .how{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .how{grid-template-columns:1fr} }
+    .steps{display:flex; flex-direction:column; gap:10px}
+    .step{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      display:flex; gap:12px;
+    }
+    .num{
+      width:30px; height:30px;
+      border-radius:12px;
+      background:rgba(244,194,13,.16);
+      border:1px solid rgba(244,194,13,.28);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      color:#1b1b1b;
+      flex:0 0 auto;
+    }
+    .step b{display:block}
+    .step span{display:block; color:var(--muted); margin-top:3px; font-size:13px; line-height:1.5}
+
+    .faq{display:flex; flex-direction:column; gap:10px}
+    details{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:12px 14px;
+    }
+    summary{cursor:pointer; font-weight:800; list-style:none;}
+    summary::-webkit-details-marker{display:none}
+    details p{color:var(--muted); margin:10px 0 0; line-height:1.6; font-size:14px}
+
+    footer{
+      padding:28px 0 90px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      margin-top:22px;
+    }
+    .foot{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .foot b{color:#d7deea}
+    .tiny{font-size:12px; color:rgba(168,178,195,.85); line-height:1.5; max-width:75ch}
+
+    .wa-float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:60;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(18,28,20,.88);
+      border:1px solid rgba(23,201,100,.32);
+      box-shadow: 0 12px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+    }
+    .wa-icon{
+      width:34px; height:34px;
+      border-radius:999px;
+      background:rgba(23,201,100,.18);
+      border:1px solid rgba(23,201,100,.34);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      color:#dff8e9;
+    }
+    .wa-float .txt{display:flex; flex-direction:column; line-height:1.1}
+    .wa-float .txt b{font-size:13px; color:#dff8e9}
+    .wa-float .txt span{font-size:11px; color:rgba(223,248,233,.75)}
+    @media (max-width: 420px){ .wa-float .txt{display:none} }
+
+    .divider{height:1px; background:var(--line); margin:16px 0}
+    .muted{color:var(--muted)}
+    .nowrap{white-space:nowrap}
+  </style>
+</head>
+
+<body>
+  <header class="nav" id="top">
+    <div class="container">
+      <div class="inner">
+        <div class="brand" aria-label="Brand">
+          <span style="display:inline-flex;align-items:center;gap:10px">
+            <span style="width:10px;height:10px;border-radius:999px;background:var(--yellow2);box-shadow:0 0 0 5px rgba(244,194,13,.12)"></span>
+            <span>IQH <span class="muted" style="font-weight:700">Futures Risk Analiz</span></span>
+          </span>
+        </div>
+        <div class="pill" title="Odak">
+          <span class="dot"></span>
+          Binance Futures odaklı analiz
+        </div>
+        <a class="btn btn-primary btn-small" id="topCta" href="index.html#" rel="noopener">
+          WhatsApp'tan Ücretsiz Analiz
+          <span aria-hidden="true">➜</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="card pad">
+            <div class="glow"></div>
+            <div class="pill" style="margin-bottom:12px">
+              <span class="dot"></span>
+              IQH Risk Analiz Ekibi
+            </div>
+
+            <h1 class="hero-title">
+              Traderların <span class="kpi">%95'i</span><br/>
+              Yanlış <span class="nowrap">Kaldıraç</span> Kullanıyor
+            </h1>
+
+            <p class="sub">
+              Son 30 günde kaç kez stop oldun? Sorun sinyal değil. <b>Risk yapısı.</b><br/>
+              WhatsApp üzerinden ücretsiz analiz ile kaldıraç, pozisyon ve stop yapını birlikte inceleyelim.
+            </p>
+
+            <!-- NEW: Clear flow line to reduce hesitation -->
+            <div class="flow">
+              <b>Tıklayın</b> → 3 kısa soru soracağız → <b>1 dk</b> içinde ilk risk değerlendirmesi
+            </div>
+
+            <div class="cta-row" style="margin-top:14px">
+              <a class="btn btn-primary" id="heroCta" href="index.html#" rel="noopener">
+                WhatsApp'tan Analiz Al
+                <span aria-hidden="true">🟢</span>
+              </a>
+              <a class="btn btn-ghost" href="index.html#how">
+                Nasıl Çalışır?
+              </a>
+            </div>
+
+            <div class="mini-note">
+              * IQH analiz ekibi <b>yatırım tavsiyesi vermez</b>. Amaç: risk yapını daha net görmene yardımcı olmak.
+            </div>
+          </div>
+
+          <aside class="side">
+            <div class="card pad" style="padding:18px">
+              <div class="badge">Hızlı Kontrol</div>
+              <div class="divider"></div>
+              <div class="stat">
+                <div class="n">Kaldıraç</div>
+                <div class="l">Ortalama kaldıraç seviyen</div>
+              </div>
+              <div class="stat">
+                <div class="n">Pozisyon</div>
+                <div class="l">Pozisyon büyüklüğü & risk dağılımı</div>
+              </div>
+              <div class="stat">
+                <div class="n">Stop</div>
+                <div class="l">Stop kullanımın & disiplin</div>
+              </div>
+            </div>
+
+            <div class="card pad" style="padding:18px">
+              <div class="badge">WhatsApp</div>
+              <div class="divider"></div>
+              <p class="section-desc" style="margin:0">
+                Başlamak için şu 3 bilgiyi yaz:
+                <b>Spot/Futures</b>, <b>ortalama kaldıraç</b>, <b>son 30 gün stop sayısı</b>.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section">
+      <div class="container">
+        <div class="card pad">
+          <h2 class="section-title">Neden Çoğu Trader Sürekli Stop Oluyor?</h2>
+          <p class="section-desc">
+            Çoğu zaman problem "piyasa" değil; kaldıraç, pozisyon ve plansız risk yapısıdır.
+          </p>
+
+          <div class="grid-2">
+            <ul class="list">
+              <li class="li">
+                <div class="check">✓</div>
+                <div>
+                  <b>Yanlış kaldıraç kullanımı</b>
+                  <span>Volatilite yükseldiğinde stop kaçınılmaz hale gelir.</span>
+                </div>
+              </li>
+              <li class="li">
+                <div class="check">✓</div>
+                <div>
+                  <b>Yanlış pozisyon büyüklüğü</b>
+                  <span>Küçük hareketler bile hesabı gereksiz zorlar.</span>
+                </div>
+              </li>
+              <li class="li">
+                <div class="check">✓</div>
+                <div>
+                  <b>Plansız risk yönetimi</b>
+                  <span>Stop, hedef ve risk/ödül dengesi net değilse istikrar zorlaşır.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="card pad" style="box-shadow:none;background:rgba(255,255,255,.02)">
+              <h3 class="section-title" style="font-size:18px;margin-top:0">Kısa Özet</h3>
+              <p class="section-desc">
+                Doğru sinyal alsan bile <b>yanlış kaldıraç</b> ve <b>yanlış pozisyon oranı</b> ile stop kaçınılmazdır.
+                Bu yüzden önce <b>risk yapısını</b> düzeltmek gerekir.
+              </p>
+              <a class="btn btn-primary" id="whyCta" href="index.html#" rel="noopener">
+                WhatsApp'tan Analiz Al
+                <span aria-hidden="true">➜</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYZE -->
+    <section class="section">
+      <div class="container">
+        <div class="card pad">
+          <h2 class="section-title">İşlemini Ücretsiz Analiz Edelim</h2>
+          <p class="section-desc">
+            IQH Risk Yönetimi Sistemi, Binance Futures işlemlerinde kaldıraç, pozisyon ve risk yapısını analiz eder.
+            WhatsApp üzerinden birkaç bilgiyle hızlı bir ilk değerlendirme yapalım.
+          </p>
+
+          <div class="chips">
+            <div class="chip">
+              <div class="ico">↯</div>
+              <div>
+                <div class="t">Kaldıraç yapısı</div>
+                <div class="m">Ortalama kaldıraç & uygun seviye</div>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="ico">▣</div>
+              <div>
+                <div class="t">Pozisyon büyüklüğü</div>
+                <div class="m">Risk oranı & lot/denge</div>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="ico">⛔</div>
+              <div>
+                <div class="t">Stop kullanımı</div>
+                <div class="m">Stop disiplin & yapı</div>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="ico">⚖</div>
+              <div>
+                <div class="t">Risk dağılımı</div>
+                <div class="m">Tek işlem riski & yapı</div>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="ico">🧠</div>
+              <div>
+                <div class="t">İşlem psikolojisi</div>
+                <div class="m">Duygusal kararları azaltma</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" id="analyzeCta" href="index.html#" rel="noopener">
+              WhatsApp Analizi Başlat
+              <span aria-hidden="true">🟢</span>
+            </a>
+            <span class="mini-note" style="margin:0">
+              Ortalama yanıt süresi: <b>10:00–22:00</b> (TR saati)
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="section">
+      <div class="container">
+        <div class="card pad">
+          <h2 class="section-title">Güven & Kapsam</h2>
+          <p class="section-desc">
+            Amacımız: riskini netleştirmen ve daha disiplinli bir yapı kurman.
+          </p>
+
+          <div class="trust">
+            <div class="box">
+              <div class="big">35,000+</div>
+              <div class="small">Analiz edilen işlem profili</div>
+            </div>
+            <div class="box">
+              <div class="big">16</div>
+              <div class="small">Ülkeden trader</div>
+            </div>
+            <div class="box">
+              <div class="big">%96</div>
+              <div class="small">Kullanıcı memnuniyeti</div>
+            </div>
+          </div>
+
+          <!-- NEW: Soft footnote to reduce skepticism -->
+          <div class="trust-note">
+            * Veriler: analiz edilen işlem profillerinin özet sonuçlarıdır. (Yatırım tavsiyesi değildir.)
+          </div>
+
+          <div class="divider"></div>
+          <div class="pill">
+            <span class="dot"></span>
+            Binance Futures odaklı analiz • IQH Futures Risk Analiz Platformu
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="card pad">
+          <div class="how">
+            <div>
+              <h2 class="section-title">Analiz Sonrası Ne Olur?</h2>
+              <p class="section-desc">
+                WhatsApp üzerinden kısa bir ön analiz yaparız. Sonra istersen adım adım risk yapını düzenleriz.
+              </p>
+
+              <div class="steps">
+                <div class="step">
+                  <div class="num">1</div>
+                  <div>
+                    <b>Bilgileri yaz</b>
+                    <span>Spot/Futures, ortalama kaldıraç, son 30 gün stop sayısı.</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="num">2</div>
+                  <div>
+                    <b>Risk yapın değerlendirilir</b>
+                    <span>Kaldıraç–pozisyon–stop uyumu ve risk/ödül dengesi kontrol edilir.</span>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="num">3</div>
+                  <div>
+                    <b>Net öneri çerçevesi</b>
+                    <span>Amaç: daha kontrollü risk ve daha istikrarlı işlem davranışı.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+              <a class="btn btn-primary" id="howCta" href="index.html#" rel="noopener">
+                Danışmana Sor (WhatsApp)
+                <span aria-hidden="true">➜</span>
+              </a>
+            </div>
+
+            <div>
+              <h3 class="section-title" style="font-size:18px;margin-top:0">Sık Sorulan Sorular</h3>
+              <div class="faq">
+                <details>
+                  <summary>Bu bir "sinyal" hizmeti mi?</summary>
+                  <p>Hayır. Sinyal satmıyoruz. Odak noktamız: kaldıraç, pozisyon ve risk yapını analiz etmek.</p>
+                </details>
+                <details>
+                  <summary>Kesin kâr garanti ediyor musunuz?</summary>
+                  <p>Hayır. Hiçbir sistem kâr garanti edemez. Bizim yaklaşımımız: riski daha kontrollü yönetmek ve istikrarı artırmak.</p>
+                </details>
+                <details>
+                  <summary>Analiz ücretsiz mi?</summary>
+                  <p>Evet, WhatsApp üzerinden ilk risk analizi ücretsizdir. Ardından ihtiyaç olursa adım adım ilerleriz.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="card pad">
+          <h2 class="section-title">Hazır mısın?</h2>
+          <p class="section-desc">
+            Binance Futures işlem profilini ücretsiz analiz edelim. Risk yapını netleştir, daha kontrollü bir plan kur.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="finalCta" href="index.html#" rel="noopener">
+              WhatsApp'tan Ücretsiz Analiz
+              <span aria-hidden="true">🟢</span>
+            </a>
+            <a class="btn btn-ghost" href="index.html#top">Sayfanın Başına Dön</a>
+          </div>
+          <div class="mini-note">
+            Not: Bu sayfa eğitim ve analiz amaçlıdır; yatırım tavsiyesi değildir.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div><b>IQH</b> • Futures Risk Analiz Platformu</div>
+          <div class="muted">Destek: TR saati 10:00–22:00</div>
+        </div>
+        <p class="tiny">
+          Uyarı: Kripto varlıklar yüksek risk içerir. Bu sayfadaki içerik yatırım tavsiyesi değildir.
+          IQH analiz ekibi yalnızca risk yapısını değerlendirmeyi ve eğitimsel çerçeve sunmayı amaçlar.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" id="waFloat" href="index.html#" rel="noopener" aria-label="WhatsApp Danışman">
+    <div class="wa-icon">WA</div>
+    <div class="txt">
+      <b>WhatsApp Danışman</b>
+      <span>Ücretsiz analiz başlat</span>
+    </div>
+  </a>
+
+  <script>
+    // Direct short-link jump
+    ["topCta","heroCta","whyCta","analyzeCta","howCta","finalCta","waFloat"].forEach(function(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.setAttribute("href", WHATSAPP_URL);
+      el.setAttribute("target", "_blank");
+    });
+
+    // smooth scroll for internal anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click",(e)=>{
+        const href = a.getAttribute("href");
+        if(!href || href === "#") return;
+        const el = document.querySelector(href);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+
+    // ===== Dwell time tracking =====
+    const _dwellStart = Date.now();
+    function _reportDwell() {
+      const seconds = Math.round((Date.now() - _dwellStart) / 1000);
+      if (seconds < 1) return;
+      const payload = JSON.stringify({ site: DWELL_SITE, seconds: seconds });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/dwell', new Blob([payload], { type: 'application/json' }));
+      } else {
+        fetch('/api/dwell', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true });
+      }
+    }
+    window.addEventListener('pagehide', _reportDwell);
+    window.addEventListener('beforeunload', _reportDwell);
+  </script>
+</body>
+</html>
